@@ -1,0 +1,348 @@
+/* Bcaitech Business Card Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Animation keyframes */
+@keyframes cardEntrance {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes icon-idle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@keyframes ripple {
+    0% { transform: scale(0, 0); opacity: 0.5; }
+    20% { transform: scale(25, 25); opacity: 0.3; }
+    100% { opacity: 0; transform: scale(40, 40); }
+}
+/* Classic Card Styles */
+.business-card {
+    width: 350px;
+    margin: 0 auto;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    font-family: 'Inter', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+    animation: cardEntrance 0.8s ease-out;
+}
+
+.business-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.classic-card {
+    background: white;
+    padding: 0;
+    text-align: center;
+    width: 350px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header with cover image */
+.classic-header {
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    background-color: #fff;
+    position: relative;
+}
+
+.classic-header .cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Profile and company logo section */
+.profile-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 20px;
+    position: relative;
+    margin-top: -40px;
+    margin-bottom: 20px;
+}
+
+.profile-container {
+    z-index: 2;
+}
+
+.profile-circle {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #8B0000;
+    padding: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.classic-card:hover .profile-circle {
+    transform: scale(1.05);
+    border-color: #b10000;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.company-logo-container {
+    width: 120px;
+    height: 80px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+
+.classic-card:hover .company-logo-container {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.company-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Identity section */
+.identity-section {
+    padding: 10px 20px 5px;
+    text-align: center;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.classic-card .name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    text-align: center;
+    letter-spacing: -0.02em;
+    transition: all 0.3s ease;
+}
+
+.classic-card:hover .name {
+    color: #8B0000;
+}
+
+.classic-card .position {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 500;
+    margin: 8px 0 20px;
+    text-transform: none;
+    text-align: center;
+}
+
+.classic-card .description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #333;
+    text-align: left;
+    padding: 15px;
+    margin: 0 20px 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+/* Contact info styling */
+.classic-card .contact-info {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.classic-card .contact-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: none;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    color: #333;
+    cursor: pointer;
+}
+
+.classic-card .contact-item:hover {
+    color: #8B0000;
+    transform: translateX(5px);
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+}
+
+.classic-card .icon {
+    width: 40px;
+    height: 40px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    font-size: 16px;
+    color: inherit;
+    animation: icon-idle 2s infinite ease-in-out;
+    transition: all 0.3s ease;
+}
+
+.classic-card .contact-item:hover .icon {
+    background: #8B0000;
+    color: white;
+    transform: scale(1.1);
+}
+
+.classic-card .contact-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.classic-card .email,
+.classic-card .phone,
+.classic-card .text {
+    flex: 1;
+    font-size: 0.95rem;
+    color: inherit;
+    font-weight: 500;
+    text-align: left;
+}
+
+.classic-card .label {
+    font-size: 0.8rem;
+    color: #666;
+    background: transparent;
+    padding: 0;
+    margin-left: 0;
+    text-align: left;
+    display: block;
+    margin-top: 2px;
+}
+
+/* Save contact button */
+.classic-card .save-contact {
+    background: #000;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    width: 90%;
+    margin: 15px auto;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.classic-card .save-contact::before {
+    content: "";
+    display: inline-block;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>');
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 8px;
+    transition: all 0.3s ease;
+}
+
+.classic-card .save-contact:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.classic-card .save-contact:hover::before {
+    transform: rotate(10deg) scale(1.2);
+}
+
+.classic-card .save-contact::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.classic-card .save-contact:hover::after {
+    animation: ripple 1s ease-out;
+}
+
+/* Powered by section */
+.classic-card .powered-by {
+    text-align: center;
+    padding: 10px 0 20px;
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+.powered-by-brand {
+    font-weight: 600;
+    color: #8B0000;
+}
+
+.classic-card a.powered-by-brand {
+    text-decoration: none;
+    color: #8B0000;
+    transition: all 0.3s ease;
+}
+
+.classic-card a.powered-by-brand:hover {
+    color: #b10000;
+    text-decoration: underline;
+}
