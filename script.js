@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
      * Open WhatsApp with the contact number
      */
     function openWhatsApp() {
-        window.open('https://wa.me/97363003006');
+        window.open('https://wa.me/+201025542665');
     }
     
     /**
